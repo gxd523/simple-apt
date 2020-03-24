@@ -13,13 +13,13 @@ import java.util.Set;
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
+import javax.annotation.processing.SupportedSourceVersion;
+import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Modifier;
 import javax.lang.model.element.TypeElement;
 
-/**
- * Created by guoxiaodong on 2019/4/16 09:49
- */
 @AutoService(Processor.class)
+@SupportedSourceVersion(SourceVersion.RELEASE_7)
 public class DemoProcessor extends AbstractProcessor {
     @Override
     public Set<String> getSupportedAnnotationTypes() {// 规定需要处理的注解

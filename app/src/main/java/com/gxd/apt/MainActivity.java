@@ -18,6 +18,6 @@ public class MainActivity extends Activity {
         setContentView(R.layout.activity_main);
         MainActivity_ViewBinding.bind(this);
 
-        textView.setText("XXXXXXXX");
+        textView.setText("成功使用注解处理器!");
     }
 }
