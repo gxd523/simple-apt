@@ -10,7 +10,6 @@ import com.squareup.javapoet.TypeName;
 import com.squareup.javapoet.TypeSpec;
 
 import java.io.IOException;
-import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 
@@ -18,6 +17,7 @@ import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.ProcessingEnvironment;
 import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
+import javax.annotation.processing.SupportedAnnotationTypes;
 import javax.annotation.processing.SupportedSourceVersion;
 import javax.lang.model.SourceVersion;
 import javax.lang.model.element.Element;
@@ -27,6 +27,7 @@ import javax.lang.model.util.Elements;
 
 @AutoService(Processor.class)
 @SupportedSourceVersion(SourceVersion.RELEASE_7)
+@SupportedAnnotationTypes(value = "com.gxd.apt.annotation.DIActivity")
 public class BindViewProcessor extends AbstractProcessor {
     private Elements elementUtils;
 
@@ -34,11 +35,6 @@ public class BindViewProcessor extends AbstractProcessor {
     public synchronized void init(ProcessingEnvironment processingEnvironment) {
         super.init(processingEnvironment);
         elementUtils = processingEnv.getElementUtils();
-    }
-
-    @Override
-    public Set<String> getSupportedAnnotationTypes() {// 规定需要处理的注解
-        return Collections.singleton(DIActivity.class.getCanonicalName());
     }
 
     @Override
